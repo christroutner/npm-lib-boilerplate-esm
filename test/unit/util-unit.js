@@ -3,7 +3,7 @@
 */
 
 // npm libraries
-import chai from 'chai'
+import { assert } from 'chai'
 import sinon from 'sinon'
 import cloneDeep from 'lodash.clonedeep'
 
@@ -13,13 +13,10 @@ import mockDataLib from './mocks/util-mocks.js'
 // Unit under test
 import UtilLib from '../../lib/util.js'
 
-// Locally global variables.
-const assert = chai.assert
-const uut = new UtilLib()
-
 describe('#util.js', () => {
   let sandbox
   let mockData
+  let uut
 
   beforeEach(() => {
     // Restore the sandbox before each test.
@@ -27,6 +24,8 @@ describe('#util.js', () => {
 
     // Clone the mock data.
     mockData = cloneDeep(mockDataLib)
+
+    uut = new UtilLib()
   })
 
   afterEach(() => sandbox.restore())

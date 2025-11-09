@@ -5,19 +5,18 @@
 
 /* eslint-disable no-async-promise-executor */
 
+// Global npm libraries
 import BCHJS from '@psf/bch-js'
 
+// Local libraries
 import Util from './lib/util.js'
 const util = new Util()
 
-let _this // local global for 'this'.
-
 class BoilerplateLib {
   constructor () {
-    _this = this
-
-    _this.bchjs = new BCHJS()
-    _this.util = util
+    // Encapsulate dependencies
+    this.bchjs = new BCHJS()
+    this.util = util
   }
 }
 
